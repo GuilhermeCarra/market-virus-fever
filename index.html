@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Supermarket Virus Fever!</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="start">
+            <div id="username">
+                <h1>Market Virus Fever!</h1>
+                <h3>Test your skills to survive quarantine!</h3>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="name" name="username">
+                    <div id="login-error" class="hidden"></div>
+                    <label for="birthdate">Birthdate</label>
+                    <input type="date" id="birthdate" name="birthdate">
+                    <input type="button" id="submit-btn" value="PLAY!">
+                    <input type="submit" class="hidden">
+                </form>
+            </div>
+            <div id="score">
+                <h1>Scoreboard</h1>
+                <ul>
+                </ul>
+            </div>
+            <div id="controls">
+                <h2>Controls:</h2>
+                <p>Movement: ← ↑ ↓ →</p>
+                <p>Take product: space-bar</p>
+            </div>
+        </div>
+
+        <div class="container hidden" id="game">
+            <div id="random-product" class="hidden"><p>BUY</p><span></span></div>
+            <div id="instructions" class="instructions-popup">
+                <div class="wrap">
+                    <h4>Get ready...</h4>
+                    <div class="div-instructions"><p><img src="src/social-distance.gif">Social distance, dont enter this area!</p></div>
+                    <div class="div-instructions"><p><img src="src/box.gif">This box shows what you need to buy</p></div>
+                    <div class="div-instructions"><p><img src="src/instruction.gif">Take it and don't forget to pay for it!</p></div>
+                    <div id="goBtn" class="blackBtn">GO!</div>
+                </div>
+            </div>
+            <div id="game-lost" class="game-popup hidden">
+                <div class="wrap">
+                    <h4>You were infected 😷</h4>
+                    <p>Don't forget to respect the social distance.</p>
+                    <p>Game time: <span class="game-time"></span> seconds</p>
+                    <div class="blackBtn restartBtn">RESTART?</div>
+                </div>
+            </div>
+            <div id="game-win" class="game-popup hidden">
+                <div class="wrap">
+                    <h4>You Win! 🎉</h4>
+                    <p>Congratulations! Now don't forget to <span class="attention">wash your hands</span> 🙌.</p>
+                    <p>Game time: <span class="game-time"></span> seconds</p>
+                    <div class="blackBtn restartBtn">PLAY AGAIN?</div>
+                </div>
+            </div>
+            <div id="win-firework" class="hidden"><img src="src/win.gif"></div>
+            <div id="grid">
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf toy"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile apples shelf"></div>
+                <div class="tile apples oranges shelf"></div>
+                <div class="tile oranges lemons shelf"></div>
+                <div class="tile lemons shelf"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile apples shelf"></div>
+                <div class="tile apples oranges shelf"></div>
+                <div class="tile oranges lemons shelf"></div>
+                <div class="tile lemons shelf"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile apples shelf"></div>
+                <div class="tile apples oranges shelf"></div>
+                <div class="tile oranges lemons shelf"></div>
+                <div class="tile lemons shelf"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf ketchup"></div> <!--Scenery ketchup-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery cashier woman-->
+                <div class="tile shelf ketchup"></div> <!--Scenery ketchup-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Bread display begin-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile shelf"></div> <!--Scenery cashier-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile win"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div>
+                <div class="tile shelf"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile shelf bread"></div> <!--Bread display-->
+                <div class="tile shelf"></div> <!--Bread display-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div>
+                <div class="tile shelf"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div> <!--Scenery bars-->
+                <div class="tile shelf"></div> <!--Scenery bars-->
+                <div class="tile shelf"></div> <!--Scenery bars-->
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile shelf"></div>
+                <div class="tile shelf"></div>
+                <div class="tile player"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile babushka"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+                <div class="tile"></div>
+            </div>
+        </div>
+    </body>
+    <script src="app.js"></script>
+</html>
